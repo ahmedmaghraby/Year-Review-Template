@@ -44,6 +44,15 @@ export const ClosingSection: React.FC = () => {
           <StarCollectorGame />
         </motion.div>
 
+        {/* Divider */}
+        <motion.div className="h-px my-12 bg-gradient-to-r from-transparent via-brand-blue/50 to-transparent" variants={fadeInUp} />
+
+        {/* Closing Message */}
+        <motion.div className="text-center" variants={fadeInUp}>
+          <p className="mb-2 text-sm text-brand-skyblue/60">Best of luck</p>
+          <h3 className="text-3xl font-bold md:text-4xl gradient-text-accent">Ahmed Maghraby</h3>
+        </motion.div>
+
       </motion.div>
     </section>
   )

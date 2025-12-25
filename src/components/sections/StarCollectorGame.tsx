@@ -68,16 +68,20 @@ export const StarCollectorGame: React.FC = () => {
         size: Math.random() * 20 + 25,
       }
       setStars((prev) => [...prev, newStar])
-
-      // Remove star after 2 seconds if not clicked
+      const timeoutTime= isMobile() ? Math.random() * 1000 + 700 :Math.random() * 1500 + 700
+      // Remove star after timeoutTime if not clicked
       setTimeout(() => {
         setStars((prev) => prev.filter((s) => s.id !== newStar.id))
-      }, 2000)
+      }, timeoutTime)
     }
 
     const spawnInterval = setInterval(spawnStar, 600)
     return () => clearInterval(spawnInterval)
   }, [gameActive])
+
+  const isMobile = () => {
+    return window.innerWidth <= 768
+  }
 
   const handleStartGame = () => {
     setScore(0)
@@ -162,21 +166,29 @@ export const StarCollectorGame: React.FC = () => {
             {stars.map((star) => (
               <motion.button
                 key={star.id}
-                className="absolute z-10 transition-shadow rounded-full cursor-pointer bg-gradient-to-br from-green-400 to-emerald-400 hover:shadow-lg hover:shadow-green-400/50"
+                className="absolute z-10 flex items-center justify-center cursor-pointer"
                 style={{
-                  left: star.x,
-                  top: star.y,
+                  left: star.x - star.size * 0.9,
+                  top: star.y - star.size * 0.9,
                   width: star.size,
                   height: star.size,
-                  background: 'radial-gradient(circle at 30% 30%, #89E985, #6BC45F)',
-                  boxShadow: '0 0 20px rgba(137, 233, 133, 0.6)',
+                  fontSize: star.size+"px",
                 }}
                 onClick={() => handleCollectStar(star.id)}
                 initial={{ scale: 0, opacity: 1 }}
-                animate={{ scale: 1 }}
-                exit={{ scale: 0.5, opacity: 0 }}
-                transition={{ duration: 0.2 }}
-                whileHover={{ scale: 1.15 }}
+                animate={{
+                  scale: 1,
+                  filter: [
+                    'drop-shadow(0 0 10px rgba(251, 236, 128, 0.8)) drop-shadow(0 0 20px rgba(137, 233, 133, 0.8))',
+                    'drop-shadow(0 0 15px rgba(251, 236, 128, 1)) drop-shadow(0 0 30px rgba(137, 233, 133, 1))',
+                    'drop-shadow(0 0 10px rgba(251, 236, 128, 0.8)) drop-shadow(0 0 20px rgba(137, 233, 133, 0.8))',
+                  ],
+                }}
+                transition={{ duration: 0.2, filter: { duration: 1.5, repeat: Infinity } }}
+                whileHover={{
+                  scale: 1.3,
+                  filter: 'drop-shadow(0 0 20px rgba(251, 236, 128, 1)) drop-shadow(0 0 40px rgba(137, 233, 133, 1))',
+                }}
               >
                 ✨
               </motion.button>
@@ -194,8 +206,8 @@ export const StarCollectorGame: React.FC = () => {
           <div className="text-center">
             <h3 className="mb-4 text-2xl font-bold text-white">Game Over!</h3>
             <div className="mb-6 space-y-2">
-              <div className="text-lg">
-                Final Score: <span className="text-2xl font-bold text-green-400">{score}</span>
+              <div className="text-lg text-brand-orange/80">
+                Final Score: <span className="text-2xl font-bold text-brand-orange/80">{score}</span>
               </div>
               <div className="text-sm text-green-300/80">
                 Best Score: <span className="font-bold text-green-400">{bestScore}</span>

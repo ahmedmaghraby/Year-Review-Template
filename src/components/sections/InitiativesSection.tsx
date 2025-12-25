@@ -33,7 +33,7 @@ const initiatives: Initiative[] = [
     highlight: 'Proof of Concept',
     gradient: 'from-cyan-500 via-blue-500 to-purple-600',
     accentColor: '#06b6d4',
-    stats: { accuracy: 'Under Review', responseTime: '1.2s' },
+    stats: { responseTime: '1.2s' },
   },
   {
     id: 2,
@@ -45,7 +45,7 @@ const initiatives: Initiative[] = [
     highlight: '20+ Active Users',
     gradient: 'from-pink-500 via-rose-500 to-orange-500',
     accentColor: '#ec4899',
-    stats: { users: '20+', generated: '500+' },
+    stats: { users: '20+' },
   },
   {
     id: 3,
