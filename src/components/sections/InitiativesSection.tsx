@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef } from 'react'
 import { motion, useMotionValue, useSpring, useTransform, AnimatePresence } from 'framer-motion'
 import { GlassCard } from '@components/ui/GlassCard'
 import { useInView } from '@hooks/useInView'
@@ -17,7 +17,6 @@ interface Initiative {
 
 interface InitiativeCardProps {
   initiative: Initiative
-  index: number
   isHovered: boolean
   onHover: () => void
   onLeave: () => void
@@ -149,11 +148,10 @@ export const InitiativesSection = () => {
             },
           }}
         >
-          {initiatives.map((initiative, index) => (
+          {initiatives.map((initiative) => (
             <InitiativeCard
               key={initiative.id}
               initiative={initiative}
-              index={index}
               isHovered={hoveredCard === initiative.id}
               onHover={() => setHoveredCard(initiative.id)}
               onLeave={() => setHoveredCard(null)}
@@ -200,8 +198,8 @@ export const InitiativesSection = () => {
   )
 }
 
-const InitiativeCard = ({ initiative, index, isHovered, onHover, onLeave }: InitiativeCardProps) => {
-  const { ref, isInView } = useInView({ threshold: 0.2 })
+const InitiativeCard = ({ initiative, isHovered, onHover, onLeave }: InitiativeCardProps) => {
+  const { ref, isInView } = useInView<HTMLDivElement>({ threshold: 0.2 })
   const [isFlipped, setIsFlipped] = useState(false)
   const cardRef = useRef<HTMLDivElement>(null)
 

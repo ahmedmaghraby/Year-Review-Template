@@ -23,6 +23,12 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       isLoading = false,
       icon,
       disabled,
+      onAnimationStart,
+      onAnimationEnd,
+      onAnimationIteration,
+      onDragStart,
+      onDrag,
+      onDragEnd,
       ...props
     },
     ref

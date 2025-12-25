@@ -1,4 +1,4 @@
-import { Skill } from '@types/index'
+import type { Skill } from '../types'
 
 export const skills: Skill[] = [
   {

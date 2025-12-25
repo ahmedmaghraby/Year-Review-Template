@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { cn } from '@lib/utils/cn'
 
 const navLinks = [
   { label: 'Impact', href: '#stats' },

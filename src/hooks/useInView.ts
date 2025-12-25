@@ -10,9 +10,9 @@ interface UseInViewOptions {
  * Hook to detect when an element enters the viewport
  * Useful for triggering animations on scroll
  */
-export const useInView = (options: UseInViewOptions = {}) => {
+export const useInView = <T extends HTMLElement = HTMLElement>(options: UseInViewOptions = {}) => {
   const { threshold = 0.1, rootMargin = '0px', triggerOnce = true } = options
-  const ref = useRef<HTMLElement>(null)
+  const ref = useRef<T>(null)
   const [isInView, setIsInView] = useState(false)
   const [hasBeenInView, setHasBeenInView] = useState(false)
 
@@ -54,9 +54,9 @@ export const useInView = (options: UseInViewOptions = {}) => {
  * Variant of useInView that returns both current and has-been-in-view states
  * Useful for more granular control
  */
-export const useInViewDetailed = (options: UseInViewOptions = {}) => {
+export const useInViewDetailed = <T extends HTMLElement = HTMLElement>(options: UseInViewOptions = {}) => {
   const { threshold = 0.1, rootMargin = '0px', triggerOnce = true } = options
-  const ref = useRef<HTMLElement>(null)
+  const ref = useRef<T>(null)
   const [isInView, setIsInView] = useState(false)
   const [hasBeenInView, setHasBeenInView] = useState(false)
 

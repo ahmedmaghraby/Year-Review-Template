@@ -56,8 +56,8 @@ const stats = [
  * Ultra-modern Stats section with 3D effects and interactive counters
  */
 export const StatsSection = () => {
-  const [activeCard, setActiveCard] = useState(null)
-  const sectionRef = useRef(null)
+  const [activeCard, setActiveCard] = useState<string | null>(null)
+  const sectionRef = useRef<HTMLElement>(null)
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' })
 
   return (
@@ -176,11 +176,10 @@ export const StatsSection = () => {
             },
           }}
         >
-          {stats.map((stat, index) => (
+          {stats.map((stat) => (
             <EnhancedStatCard
               key={stat.id}
               stat={stat}
-              index={index}
               isActive={activeCard === stat.id}
               onHover={() => setActiveCard(stat.id)}
               onLeave={() => setActiveCard(null)}
@@ -240,8 +239,21 @@ export const StatsSection = () => {
   )
 }
 
-const EnhancedStatCard = ({ stat, index, isActive, onHover, onLeave }) => {
-  const cardRef = useRef(null)
+interface StatData {
+  id: string
+  icon: string
+  value: number
+  label: string
+  description: string
+  gradient: string
+  accentColor: string
+  particleCount: number
+  prefix?: string
+  suffix?: string
+}
+
+const EnhancedStatCard = ({ stat, isActive, onHover, onLeave }: { stat: StatData; isActive: boolean; onHover: () => void; onLeave: () => void }) => {
+  const cardRef = useRef<HTMLDivElement>(null)
   const isCardInView = useInView(cardRef, { once: true })
   const [count, setCount] = useState(0)
   const [hasAnimated, setHasAnimated] = useState(false)
@@ -282,7 +294,7 @@ const EnhancedStatCard = ({ stat, index, isActive, onHover, onLeave }) => {
   })
 
 
-  const handleMouseMove = (e) => {
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!cardRef.current) return
     const rect = cardRef.current.getBoundingClientRect()
     const x = (e.clientX - rect.left) / rect.width - 0.5
@@ -480,7 +492,7 @@ const EnhancedStatCard = ({ stat, index, isActive, onHover, onLeave }) => {
 }
 
 // Particle burst animation
-const ParticleBurst = ({ color, count }) => {
+const ParticleBurst = ({ color, count }: { color: string; count: number }) => {
   const particles = [...Array(count)].map((_, i) => {
     const angle = (i / count) * Math.PI * 2
     return {

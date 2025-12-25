@@ -1,11 +1,4 @@
 import React from 'react'
-import { motion } from 'framer-motion'
-
-const socialLinks = [
-  { label: 'GitHub', url: 'https://github.com', icon: '⚙️' },
-  { label: 'LinkedIn', url: 'https://linkedin.com', icon: '💼' },
-  { label: 'Email', url: 'mailto:ahmed@example.com', icon: '✉️' },
-]
 
 /**
  * Footer with social links and copyright

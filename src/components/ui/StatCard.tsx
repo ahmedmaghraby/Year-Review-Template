@@ -11,6 +11,7 @@ interface StatCardProps {
   label: string
   description: string
   suffix?: string
+  prefix?: string
   delay?: number
 }
 
@@ -53,7 +54,7 @@ export const StatCard: React.FC<StatCardProps> = ({
           {/* Value */}
           <div>
             <div className="text-3xl font-bold gradient-text-accent">
-              <AnimatedCounter end={value} duration={2000} suffix={suffix} prefix={prefix} />
+              <AnimatedCounter end={value} duration={2000} suffix={suffix} />
             </div>
           </div>
 

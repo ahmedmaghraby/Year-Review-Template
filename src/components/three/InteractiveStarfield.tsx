@@ -285,7 +285,7 @@ export const InteractiveStarfield: React.FC = () => {
       { type: 'pluto', size: 2.5, orbitRadius: 280, orbitSpeed: 0.00008, rotationSpeed: 0.0004, emissive: 0x2a2a2a, z: -340, startAngle: 5.6, yOffset: 50 }
     ]
 
-    planetData.forEach((data, index) => {
+    planetData.forEach((data) => {
       const texture = createPlanetTexture(data.type)
       const planet = new THREE.Mesh(
         new THREE.SphereGeometry(data.size, 64, 64),
@@ -453,7 +453,7 @@ export const InteractiveStarfield: React.FC = () => {
         { r: 100, g: 50, b: 120, a: 0.08 }
       ]
       
-      colors.forEach((color, index) => {
+      colors.forEach((color) => {
         const x = 256 + Math.random() * 512
         const y = 256 + Math.random() * 512
         const radius = 300 + Math.random() * 400

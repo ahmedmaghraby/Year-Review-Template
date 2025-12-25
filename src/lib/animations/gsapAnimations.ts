@@ -24,6 +24,7 @@ export const createScrollAnimation = (
       trigger,
       start,
       end,
+      scrub,
       toggleActions: 'play none none reverse',
     },
     opacity: 0,
