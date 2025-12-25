@@ -1,0 +1,142 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(9, 4, 25, 0.8);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #0055FF, #4DE1FF);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #4DE1FF, #0055FF);
+}
+
+/* Smooth scroll behavior - Fast and responsive */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* Global text selection */
+::selection {
+  background-color: rgba(0, 85, 255, 0.3);
+  color: inherit;
+}
+
+/* Smooth transitions */
+* {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Disable transitions for animations */
+.animate-none * {
+  transition: none !important;
+}
+
+/* Glassmorphism base */
+.glass {
+  background: rgba(9, 4, 25, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 85, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.glass-light {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Glow effects */
+.glow-blue {
+  box-shadow: 0 0 20px rgba(0, 85, 255, 0.3);
+}
+
+.glow-blue-lg {
+  box-shadow: 0 0 40px rgba(0, 85, 255, 0.4);
+}
+
+.glow-blue-xl {
+  box-shadow: 0 0 60px rgba(0, 85, 255, 0.5), inset 0 0 60px rgba(0, 85, 255, 0.1);
+}
+
+/* Gradient text utility */
+.gradient-text {
+  background: linear-gradient(135deg, #0055FF, #4DE1FF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-accent {
+  background: linear-gradient(135deg, #0055FF, #4DE1FF, #FFB460);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Prevent layout shift on scrollbar appearance */
+html {
+  overflow-y: scroll;
+}
+
+/* Ensure readable text sizes */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Performance optimizations */
+section {
+  will-change: transform;
+}
+
+img {
+  will-change: opacity;
+}
+
+/* Enhance button interactions */
+button, a {
+  will-change: transform;
+}
+
+/* Smooth section transitions */
+section {
+  position: relative;
+  z-index: 1;
+}
+
+/* Add subtle depth to sections */
+section:nth-child(odd) {
+  background: linear-gradient(to bottom, rgba(0, 85, 255, 0.02), transparent);
+}
+
+/* Pulse animation for glowing elements */
+@keyframes soft-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 85, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(0, 85, 255, 0.5);
+  }
+}
+
+.animate-pulse {
+  animation: soft-glow 3s ease-in-out infinite;
+}
