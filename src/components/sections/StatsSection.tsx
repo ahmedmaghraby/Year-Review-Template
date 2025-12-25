@@ -40,12 +40,12 @@ const stats = [
     particleCount: 15,
   },
   {
-    id: 'projects',
-    icon: '📦',
-    value: 6,
+    id: 'work-items',
+    icon: '✅',
+    value: 360,
     suffix: '+',
-    label: 'projects',
-    description: 'Production projects worked on to make an impact',
+    label: 'Work Items',
+    description: 'Tasks and deliverables completed throughout 2025',
     gradient: 'from-orange-500 via-amber-500 to-yellow-500',
     accentColor: '#f59e0b',
     particleCount: 12,
@@ -192,9 +192,9 @@ export const StatsSection = () => {
       </div>
 
       {/* Epic background effects */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {/* <div className="absolute inset-0 overflow-hidden pointer-events-none"> */}
         {/* Animated gradient orbs */}
-        <motion.div
+        {/* <motion.div
           className="absolute left-0 top-1/4 h-[600px] w-[600px] rounded-full bg-green-500/20 blur-3xl"
           animate={{
             scale: [1, 1.2, 1],
@@ -221,10 +221,10 @@ export const StatsSection = () => {
             repeat: Infinity,
             ease: 'easeInOut',
           }}
-        />
+        /> */}
 
         {/* Grid overlay */}
-        <div
+        {/* <div
           className="absolute inset-0 opacity-[0.03]"
           style={{
             backgroundImage: `
@@ -234,7 +234,7 @@ export const StatsSection = () => {
             backgroundSize: '50px 50px',
           }}
         />
-      </div>
+      </div> */}
     </section>
   )
 }
