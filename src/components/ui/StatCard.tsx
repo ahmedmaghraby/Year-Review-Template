@@ -46,20 +46,20 @@ export const StatCard: React.FC<StatCardProps> = ({
       >
         <div className="flex flex-col gap-4">
           {/* Icon */}
-          <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-br from-brand-blue/20 to-brand-skyblue/20 text-2xl">
+          <div className="flex items-center justify-center w-12 h-12 text-2xl rounded-lg bg-gradient-to-br from-brand-blue/20 to-brand-skyblue/20">
             {icon}
           </div>
 
           {/* Value */}
           <div>
             <div className="text-3xl font-bold gradient-text-accent">
-              <AnimatedCounter end={value} duration={2000} suffix={suffix} />
+              <AnimatedCounter end={value} duration={2000} suffix={suffix} prefix={prefix} />
             </div>
           </div>
 
           {/* Label and Description */}
           <div>
-            <h3 className="text-lg font-semibold text-white mb-1">{label}</h3>
+            <h3 className="mb-1 text-lg font-semibold text-white">{label}</h3>
             <p className="text-sm text-brand-skyblue/70">{description}</p>
           </div>
         </div>

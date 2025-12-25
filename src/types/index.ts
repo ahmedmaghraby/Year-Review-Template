@@ -5,6 +5,7 @@ export interface Stat {
   label: string
   description: string
   suffix?: string
+  prefix?: string
 }
 
 export interface Project {
