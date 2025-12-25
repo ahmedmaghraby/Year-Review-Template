@@ -13,6 +13,7 @@ export default {
           blue: '#0055FF',
           skyblue: '#4DE1FF',
           orange: '#FFB460',
+          green:"#89E985"
         },
         dark: {
           bg: '#090419',

@@ -29,15 +29,15 @@ const initiatives: Initiative[] = [
     title: 'Customer RAG Chatbot',
     description: 'AI-powered customer support chatbot using Retrieval-Augmented Generation',
     icon: '🤖',
-    tags: ['LangChain', 'Transformers', 'React', 'Python'],
+    tags: ['LangChain', 'Transformers', 'Python'],
     highlight: 'Proof of Concept',
     gradient: 'from-cyan-500 via-blue-500 to-purple-600',
     accentColor: '#06b6d4',
-    stats: { accuracy: '94%', responseTime: '1.2s' },
+    stats: { accuracy: 'Under Review', responseTime: '1.2s' },
   },
   {
     id: 2,
-    title: 'Lendo Email Signature Generator',
+    title: 'Email Signature Tool',
     description:
       '20+ employees actively using this tool to generate branded email signatures dynamically',
     icon: '✉️',

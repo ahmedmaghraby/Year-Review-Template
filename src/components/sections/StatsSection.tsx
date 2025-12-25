@@ -15,8 +15,8 @@ const stats = [
     value: 833,
     label: 'Lines of Impact',
     description: 'Every commit tells a story of innovation',
-    gradient: 'from-violet-500 via-purple-500 to-fuchsia-500',
-    accentColor: '#a855f7',
+    gradient: 'from-green-400 via-green-300 to-emerald-400',
+    accentColor: '#FBEC80',
     particleCount: 20,
   },
   {
@@ -36,14 +36,14 @@ const stats = [
     label: 'Code Reviews Mastered',
     description: 'Collaborative solutions that shipped to production',
     gradient: 'from-emerald-500 via-green-500 to-lime-500',
-    accentColor: '#10b981',
+    accentColor: '#89E985',
     particleCount: 15,
   },
   {
     id: 'projects',
     icon: '📦',
     value: 6,
-    prefix: '+',
+    suffix: '+',
     label: 'projects',
     description: 'Production projects worked on to make an impact',
     gradient: 'from-orange-500 via-amber-500 to-yellow-500',
@@ -84,11 +84,11 @@ export const StatsSection = () => {
             }}
           >
             <motion.div
-              className="relative px-8 py-3 overflow-hidden border rounded-full border-purple-500/30 bg-gradient-to-r from-violet-600/20 via-purple-600/20 to-fuchsia-600/20 backdrop-blur-xl"
+              className="relative px-8 py-3 overflow-hidden border rounded-full border-green-500/30 bg-gradient-to-r from-green-600/20 via-green-600/20 to-emerald-600/20 backdrop-blur-xl"
               whileHover={{ scale: 1.05 }}
             >
               <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-violet-600/30 to-fuchsia-600/30"
+                className="absolute inset-0 bg-gradient-to-r from-green-600/30 to-emerald-600/30"
                 animate={{
                   x: ['-100%', '100%'],
                 }}
@@ -98,10 +98,10 @@ export const StatsSection = () => {
                   repeatType:'mirror',
                   repeatDelay: 3,
                   ease: 'linear',
-                  
+
                 }}
               />
-              <span className="relative text-sm font-bold tracking-wider text-transparent bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text">
+              <span className="relative text-sm font-bold tracking-wider text-transparent bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text">
                 2025 Numbers
               </span>
             </motion.div>
@@ -126,7 +126,7 @@ export const StatsSection = () => {
                     ease: [0.22, 1, 0.36, 1],
                   }}
                 >
-                  <span className="text-transparent bg-gradient-to-br from-white via-purple-100 to-fuchsia-200 bg-clip-text drop-shadow-2xl">
+                  <span className="text-transparent bg-gradient-to-br from-white via-green-100 to-emerald-200 bg-clip-text drop-shadow-2xl">
                     {word}
                   </span>
                 </motion.span>
@@ -135,25 +135,25 @@ export const StatsSection = () => {
 
             {/* Glowing underline */}
             <motion.div
-              className="absolute h-1 rounded-full -bottom-2 left-1/2 bg-gradient-to-r from-transparent via-purple-500 to-transparent"
+              className="absolute h-1 rounded-full -bottom-2 left-1/2 bg-gradient-to-r from-transparent via-green-500 to-transparent"
               initial={{ width: 0, x: '-50%' }}
               animate={isInView ? { width: '80%', x: '-50%' } : { width: 0, x: '-50%' }}
               transition={{ duration: 1.2, delay: 0.8 }}
               style={{
-                boxShadow: '0 0 20px rgba(168, 85, 247, 0.5)',
+                boxShadow: '0 0 20px rgba(137, 233, 133, 0.5)',
               }}
             />
           </div>
 
           {/* Subtitle */}
           <motion.p
-            className="max-w-3xl mx-auto mt-8 text-xl font-light text-purple-300/60 md:text-2xl"
+            className="max-w-3xl mx-auto mt-8 text-xl font-light text-green-300/60 md:text-2xl"
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.8, delay: 1 }}
           >
             Every number represents{' '}
-            <span className="font-semibold text-transparent bg-gradient-to-r from-purple-400 to-fuchsia-400 bg-clip-text">
+            <span className="font-semibold text-transparent bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text">
               hours of passion
             </span>
             , countless iterations, and real impact
@@ -196,7 +196,7 @@ export const StatsSection = () => {
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Animated gradient orbs */}
         <motion.div
-          className="absolute left-0 top-1/4 h-[600px] w-[600px] rounded-full bg-purple-500/20 blur-3xl"
+          className="absolute left-0 top-1/4 h-[600px] w-[600px] rounded-full bg-green-500/20 blur-3xl"
           animate={{
             scale: [1, 1.2, 1],
             opacity: [0.3, 0.5, 0.3],
@@ -210,7 +210,7 @@ export const StatsSection = () => {
           }}
         />
         <motion.div
-          className="absolute bottom-0 right-0 h-[600px] w-[600px] rounded-full bg-fuchsia-500/20 blur-3xl"
+          className="absolute bottom-0 right-0 h-[600px] w-[600px] rounded-full bg-emerald-500/20 blur-3xl"
           animate={{
             scale: [1, 1.3, 1],
             opacity: [0.2, 0.4, 0.2],
@@ -229,8 +229,8 @@ export const StatsSection = () => {
           className="absolute inset-0 opacity-[0.03]"
           style={{
             backgroundImage: `
-              linear-gradient(rgba(168, 85, 247, 0.5) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(168, 85, 247, 0.5) 1px, transparent 1px)
+              linear-gradient(rgba(137, 233, 133, 0.5) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(137, 233, 133, 0.5) 1px, transparent 1px)
             `,
             backgroundSize: '50px 50px',
           }}
@@ -245,18 +245,6 @@ const EnhancedStatCard = ({ stat, index, isActive, onHover, onLeave }) => {
   const isCardInView = useInView(cardRef, { once: true })
   const [count, setCount] = useState(0)
   const [hasAnimated, setHasAnimated] = useState(false)
-
-  // 3D mouse tracking
-  const mouseX = useMotionValue(0)
-  const mouseY = useMotionValue(0)
-  const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [8, -8]), {
-    stiffness: 300,
-    damping: 30,
-  })
-  const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-8, 8]), {
-    stiffness: 300,
-    damping: 30,
-  })
 
   // Counter animation
   useEffect(() => {
@@ -280,6 +268,19 @@ const EnhancedStatCard = ({ stat, index, isActive, onHover, onLeave }) => {
       return () => clearInterval(timer)
     }
   }, [isCardInView, hasAnimated, stat.value])
+
+  // 3D mouse tracking
+  const mouseX = useMotionValue(0)
+  const mouseY = useMotionValue(0)
+  const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [8, -8]), {
+    stiffness: 300,
+    damping: 30,
+  })
+  const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-8, 8]), {
+    stiffness: 300,
+    damping: 30,
+  })
+
 
   const handleMouseMove = (e) => {
     if (!cardRef.current) return
@@ -415,11 +416,11 @@ const EnhancedStatCard = ({ stat, index, isActive, onHover, onLeave }) => {
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
                   backgroundClip: 'text',
-                  filter: 'drop-shadow(0 0 30px rgba(168, 85, 247, 0.3))',
+                  filter: 'drop-shadow(0 0 30px rgba(137, 233, 133, 0.3))',
                 }}
               >
                 {stat.prefix}
-                {count.toLocaleString()}
+                {stat.value.toLocaleString()}
                 {stat.suffix || ''}
               </motion.div>
 
@@ -444,7 +445,7 @@ const EnhancedStatCard = ({ stat, index, isActive, onHover, onLeave }) => {
             <h3 className="mb-2 text-xl font-bold tracking-tight text-white">{stat.label}</h3>
 
             {/* Description */}
-            <p className="text-sm leading-relaxed text-purple-300/60">{stat.description}</p>
+            <p className="text-sm leading-relaxed text-green-300/60">{stat.description}</p>
 
             {/* Decorative corner accent */}
             <motion.div
@@ -557,9 +558,9 @@ const FloatingBadges = () => {
             ease: 'easeInOut',
           }}
         >
-          <div className="flex items-center gap-2 px-4 py-2 border rounded-full border-purple-500/30 bg-gradient-to-r from-purple-600/20 to-fuchsia-600/20 backdrop-blur-sm">
+          <div className="flex items-center gap-2 px-4 py-2 border rounded-full border-green-500/30 bg-gradient-to-r from-green-600/20 to-emerald-600/20 backdrop-blur-sm">
             <span className="text-2xl">{badge.icon}</span>
-            <span className="text-sm font-semibold text-purple-300">{badge.label}</span>
+            <span className="text-sm font-semibold text-green-300">{badge.label}</span>
           </div>
         </motion.div>
       ))}
