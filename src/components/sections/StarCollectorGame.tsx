@@ -156,7 +156,7 @@ export const StarCollectorGame: React.FC = () => {
             <div className="font-bold text-white">
               Score: <span className="text-green-400">{score}</span>
             </div>
-            <div className={`text-white font-bold ${timeLeft <= 10 ? 'text-red-400' : 'text-green-400'}`}>
+            <div className={`font-bold ${timeLeft <= 10 ? 'text-red-800' : 'text-green-400'}`}>
               Time: {timeLeft}s
             </div>
           </div>
