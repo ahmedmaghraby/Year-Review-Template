@@ -13,6 +13,9 @@ interface Initiative {
   gradient: string
   accentColor: string
   stats: Record<string, string>
+  backCardTitle?: string
+  backCardDescription?: string
+  link?: string
 }
 
 interface InitiativeCardProps {
@@ -33,6 +36,8 @@ const initiatives: Initiative[] = [
     gradient: 'from-cyan-500 via-blue-500 to-purple-600',
     accentColor: '#06b6d4',
     stats: { responseTime: '1.2s' },
+    backCardTitle: 'Expanding Features',
+    backCardDescription: 'Working on enhancing the chatbot capabilities. Stay tuned for updates!',
   },
   {
     id: 2,
@@ -45,6 +50,10 @@ const initiatives: Initiative[] = [
     gradient: 'from-pink-500 via-rose-500 to-orange-500',
     accentColor: '#ec4899',
     stats: { users: '20+' },
+    backCardTitle: 'Want to Try?',
+    backCardDescription:
+      'You can try the Email Signature Tool yourself! Click below to get started.',
+    link: 'https://lendoemailsignature.web.app/',
   },
   {
     id: 3,
@@ -56,6 +65,9 @@ const initiatives: Initiative[] = [
     gradient: 'from-emerald-500 via-teal-500 to-cyan-500',
     accentColor: '#10b981',
     stats: { sessions: '50+', rounds: '550+' },
+    backCardTitle: 'Join a Session',
+    backCardDescription: 'Join an ongoing planning poker session and contribute your estimates in real-time.',
+    link: 'https://planning-agile-poker.web.app/',
   },
 ]
 
@@ -166,7 +178,7 @@ export const InitiativesSection = () => {
       {/* Ambient Background Effects */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
-          className="absolute top-0 rounded-full left-1/4 h-96 w-96 bg-cyan-500/10 blur-3xl"
+          className="absolute rounded-full left-1/4 top-32 h-96 w-96 bg-cyan-500/10 blur-3xl"
           animate={{
             scale: [1, 1.2, 1],
             opacity: [0.3, 0.5, 0.3],
@@ -498,21 +510,29 @@ const InitiativeCard = ({ initiative, isHovered, onHover, onLeave }: InitiativeC
                   >
                     ✨
                   </motion.div>
-                  <h4 className="mb-4 text-2xl font-bold text-white">More details coming soon</h4>
+                  <h4 className="mb-4 text-2xl font-bold text-white">
+                    {initiative.backCardTitle || ''}
+                  </h4>
                   <p className="mb-6 text-cyan-200/60">
-                    This initiative is making waves across the organization
+                    {initiative.backCardDescription ||
+                      'More details coming soon. Stay tuned for updates on this initiative!'}
                   </p>
-                  <motion.button
-                    className="px-6 py-3 font-semibold rounded-full"
-                    style={{
-                      background: `linear-gradient(135deg, ${initiative.accentColor}, ${initiative.accentColor}CC)`,
-                      color: 'white',
-                    }}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    Learn More
-                  </motion.button>
+                  {initiative.link && (
+                    <motion.button
+                      className="px-6 py-3 font-semibold rounded-full"
+                      style={{
+                        background: `linear-gradient(135deg, ${initiative.accentColor}, ${initiative.accentColor}CC)`,
+                        color: 'white',
+                      }}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={() => {
+                        window.open(initiative.link || '#', '_blank')
+                      }}
+                    >
+                      Learn More
+                    </motion.button>
+                  )}
                 </div>
               </GlassCard>
             </motion.div>

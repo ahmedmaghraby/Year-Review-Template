@@ -123,9 +123,9 @@ section {
 }
 
 /* Add subtle depth to sections */
-section:nth-child(odd) {
+/* section:nth-child(odd) {
   background: linear-gradient(to bottom, rgba(0, 85, 255, 0.02), transparent);
-}
+} */
 
 /* Pulse animation for glowing elements */
 @keyframes soft-glow {

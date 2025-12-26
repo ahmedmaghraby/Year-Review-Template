@@ -439,48 +439,48 @@ export const InteractiveStarfield: React.FC = () => {
     const shootingStarInterval = 3.0
 
     // ============ NEBULA BACKGROUND ============
-    const createNebulaTexture = () => {
-      const canvas = document.createElement('canvas')
-      canvas.width = 1024
-      canvas.height = 1024
-      const ctx = canvas.getContext('2d')!
+    // const createNebulaTexture = () => {
+    //   const canvas = document.createElement('canvas')
+    //   canvas.width = 1024
+    //   canvas.height = 1024
+    //   const ctx = canvas.getContext('2d')!
 
-      // Multiple overlapping nebula clouds
-      const colors = [
-        { r: 60, g: 40, b: 120, a: 0.15 },
-        { r: 80, g: 20, b: 80, a: 0.12 },
-        { r: 20, g: 60, b: 100, a: 0.1 },
-        { r: 100, g: 50, b: 120, a: 0.08 }
-      ]
+    //   // Multiple overlapping nebula clouds
+    //   const colors = [
+    //     { r: 60, g: 40, b: 120, a: 0.15 },
+    //     { r: 80, g: 20, b: 80, a: 0.12 },
+    //     { r: 20, g: 60, b: 100, a: 0.1 },
+    //     { r: 100, g: 50, b: 120, a: 0.08 }
+    //   ]
       
-      colors.forEach((color) => {
-        const x = 256 + Math.random() * 512
-        const y = 256 + Math.random() * 512
-        const radius = 300 + Math.random() * 400
+    //   colors.forEach((color) => {
+    //     const x = 256 + Math.random() * 512
+    //     const y = 256 + Math.random() * 512
+    //     const radius = 300 + Math.random() * 400
         
-        const gradient = ctx.createRadialGradient(x, y, 0, x, y, radius)
-        gradient.addColorStop(0, `rgba(${color.r}, ${color.g}, ${color.b}, ${color.a})`)
-        gradient.addColorStop(0.5, `rgba(${color.r}, ${color.g}, ${color.b}, ${color.a * 0.5})`)
-        gradient.addColorStop(1, 'rgba(0, 0, 0, 0)')
+    //     const gradient = ctx.createRadialGradient(x, y, 0, x, y, radius)
+    //     gradient.addColorStop(0, `rgba(${color.r}, ${color.g}, ${color.b}, ${color.a})`)
+    //     gradient.addColorStop(0.5, `rgba(${color.r}, ${color.g}, ${color.b}, ${color.a * 0.5})`)
+    //     gradient.addColorStop(1, 'rgba(0, 0, 0, 0)')
         
-        ctx.fillStyle = gradient
-        ctx.fillRect(0, 0, 1024, 1024)
-      })
+    //     ctx.fillStyle = gradient
+    //     ctx.fillRect(0, 0, 1024, 1024)
+    //   })
       
-      return new THREE.CanvasTexture(canvas)
-    }
+    //   return new THREE.CanvasTexture(canvas)
+    // }
 
-    const nebulaTexture = createNebulaTexture()
-    const nebulaSphere = new THREE.Mesh(
-      new THREE.SphereGeometry(800, 32, 32),
-      new THREE.MeshBasicMaterial({
-        map: nebulaTexture,
-        side: THREE.BackSide,
-        transparent: true,
-        opacity: 0.6
-      })
-    )
-    scene.add(nebulaSphere)
+    // const nebulaTexture = createNebulaTexture()
+    // const nebulaSphere = new THREE.Mesh(
+    //   new THREE.SphereGeometry(800, 32, 32),
+    //   new THREE.MeshBasicMaterial({
+    //     map: nebulaTexture,
+    //     side: THREE.BackSide,
+    //     transparent: true,
+    //     opacity: 0.6
+    //   })
+    // )
+    // scene.add(nebulaSphere)
 
     // ============ LIGHTING ============
     const ambientLight = new THREE.AmbientLight(0x202040, 0.8)
@@ -593,7 +593,7 @@ export const InteractiveStarfield: React.FC = () => {
       }
 
       // Slow nebula rotation
-      nebulaSphere.rotation.y += delta * 0.01
+      // nebulaSphere.rotation.y += delta * 0.01
 
       renderer.render(scene, camera)
     }
@@ -643,9 +643,9 @@ export const InteractiveStarfield: React.FC = () => {
         }
       })
       
-      nebulaSphere.geometry.dispose()
-      nebulaSphere.material.map?.dispose()
-      nebulaSphere.material.dispose()
+      // nebulaSphere.geometry.dispose()
+      // nebulaSphere.material.map?.dispose()
+      // nebulaSphere.material.dispose()
       
       renderer.dispose()
     }
