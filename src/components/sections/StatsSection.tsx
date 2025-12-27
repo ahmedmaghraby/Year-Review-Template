@@ -12,8 +12,9 @@ const stats = [
   {
     id: 'contributions',
     icon: '🚀',
-    value: 833,
-    label: 'Lines of Impact',
+    value: 840,
+    suffix: '+',
+    label: 'Impact',
     description: 'Every commit tells a story of innovation',
     gradient: 'from-green-400 via-green-300 to-emerald-400',
     accentColor: '#FBEC80',
@@ -22,7 +23,8 @@ const stats = [
   {
     id: 'pushes',
     icon: '🔁',
-    value: 618,
+    value: 620,
+    suffix: '+',
     label: 'Iterations to Excellence',
     description: 'Continuous refinement and deployment cycles',
     gradient: 'from-blue-500 via-cyan-500 to-teal-500',
@@ -33,6 +35,7 @@ const stats = [
     id: 'mrs',
     icon: '🔀',
     value: 210,
+    suffix: '+',
     label: 'Code Reviews Mastered',
     description: 'Collaborative solutions that shipped to production',
     gradient: 'from-emerald-500 via-green-500 to-lime-500',
@@ -470,20 +473,6 @@ const EnhancedStatCard = ({ stat, isActive, onHover, onLeave }: { stat: StatData
                 opacity: isActive ? 0.2 : 0.1,
               }}
             />
-
-            {/* Interactive indicator */}
-            <motion.div
-              className="absolute flex items-center gap-1 text-xs bottom-4 right-4"
-              style={{ color: stat.accentColor }}
-              animate={{
-                opacity: isActive ? 1 : 0,
-                x: isActive ? 0 : 10,
-              }}
-            >
-              <motion.div animate={{ x: [0, 3, 0] }} transition={{ duration: 1, repeat: Infinity }}>
-                →
-              </motion.div>
-            </motion.div>
           </div>
         </div>
       </motion.div>

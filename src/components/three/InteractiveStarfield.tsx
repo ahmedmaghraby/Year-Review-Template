@@ -406,7 +406,8 @@ export const InteractiveStarfield: React.FC = () => {
       }
       
       shootingStar.position.set(x, y, z)
-      
+      shootingStar.scale.x = -1 // Flip the shooting star shape
+
       // Direction - diagonal downward motion
       const targetX = x - 150 - Math.random() * 100
       const targetY = y - 200 - Math.random() * 50

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { fadeInUp, staggerContainer } from '@lib/animations/variants'
+import lendoLogo from '../../assets/lendo_logo.png'
 
 /**
  * Hero section with typing effect that reveals each line step by step
@@ -92,7 +93,7 @@ export const HeroSection: React.FC = () => {
         {/* Company Logo */}
         <motion.div className="flex justify-center mb-8" variants={fadeInUp}>
           <img
-            src="https://avatars.slack-edge.com/2025-12-25/10188570210482_7af0ee05f4c154f1c74d_88.png"
+            src={lendoLogo}
             alt="Company Logo"
             className="w-16 h-16 rounded-lg shadow-lg"
           />
