@@ -1,7 +1,7 @@
 import React from 'react'
 import { Footer } from './Footer'
 import { InteractiveStarfield } from '@components/three/InteractiveStarfield'
-
+import { Analytics } from "@vercel/analytics/next"
 interface LayoutProps {
   children: React.ReactNode
 }
@@ -13,7 +13,8 @@ interface LayoutProps {
  */
 export const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <div className="min-h-screen relative bg-black">
+    <div className="relative min-h-screen bg-black">
+      <Analytics />
       {/* Interactive Starfield Background - covers entire website */}
       <InteractiveStarfield />
 
